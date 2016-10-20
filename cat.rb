@@ -20,19 +20,24 @@ class Cat
     end
 
     def eats_at
-      "Garfield eats at #{@meal_time} PM"
-      puts meal_time
+      if @meal_time < 12
+        time = "#{ @meal_time } AM"
+      elsif @meal_time == 12
+        time = "#{ @meal_time } PM"
+      else @meal_time > 12
+        time = "#{ @meal_time - 12 } PM"
+      end
     end
 
     def meow
-      puts "My name is #{ @name } and prefer to eat #{ @preferred_food} at #{@meal_time}"
+      puts "My name is #{ @name } and prefer to eat #{ @preferred_food } at #{eats_at}"
     end
 
 #self.meow
 end
 
 garfield = Cat.new('garfield', 'tuna', 12)
-digimon = Cat.new('digimon', 'chicken', 2)
+digimon = Cat.new('digimon', 'chicken', 14)
 
 puts garfield.meow
 puts digimon.meow
